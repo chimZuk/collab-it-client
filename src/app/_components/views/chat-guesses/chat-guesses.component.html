@@ -1,5 +1,5 @@
 <div class="chat">
-    <div class="chat-body">
+    <div class="chat-body" id="messages">
         <div *ngFor="let message of messages">
             <div class="message-header">
                 <span>{{message.senderName}}</span>
@@ -8,10 +8,10 @@
             <div class="message-content">
                 <span>{{message.text}}</span>
                 <div class="hint-buttons">
-                    <button mat-stroked-button color="accent">
+                    <button mat-stroked-button color="accent" [disabled]="!authorized">
                         <mat-icon>thumb_down_alt</mat-icon>
                     </button>
-                    <button mat-stroked-button color="warn">
+                    <button mat-stroked-button color="warn" [disabled]="!authorized">
                         <mat-icon>thumb_up_alt</mat-icon>
                     </button>
                 </div>
@@ -20,9 +20,9 @@
     </div>
     <div class="chat-actions">
         <mat-form-field>
-            <input autofocus matInput placeholder="Answer" required>
+            <input autofocus matInput placeholder="Answer" [(ngModel)]="message.text" [disabled]="!authorized">
         </mat-form-field>
-        <button mat-mini-fab aria-label="Send" (click)="sendMessage();">
+        <button mat-mini-fab aria-label="Send" (click)="sendMessage();" (keyup)="$event.keyCode == 13 && sendMessage();" [disabled]="!authorized">
             <mat-icon>send</mat-icon>
         </button>
     </div>

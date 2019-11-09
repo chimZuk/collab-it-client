@@ -9,10 +9,12 @@ import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.compo
 })
 export class IndexComponent implements OnInit {
 
+  authorized: boolean = false;
+
   userData: any = {
     NickName: ""
   }
-  
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
