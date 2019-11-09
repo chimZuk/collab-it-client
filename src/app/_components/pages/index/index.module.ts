@@ -6,6 +6,7 @@ import { IndexRouter } from './index.router';
 import { ChatGuessesComponent } from '../../views/chat-guesses/chat-guesses.component';
 import { UserScoresComponent } from '../../views/user-scores/user-scores.component';
 import { DrawingFieldComponent } from '../../views/drawing-field/drawing-field.component';
+import { SocketService } from '../../../_services/socket/socket.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { DrawingFieldComponent } from '../../views/drawing-field/drawing-field.c
     CommonModule,
     IndexRouter,
     ExportsModule
+  ],
+  providers: [
+    SocketService
   ]
 })
 export class IndexModule { }

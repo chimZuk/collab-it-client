@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketService } from '../../../_services/socket/socket.service';
 
 @Component({
   selector: 'chat-guesses',
@@ -16,9 +17,17 @@ export class ChatGuessesComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(
+    private socket: SocketService
+  ) { }
 
   ngOnInit() {
+
+  }
+
+  sendMessage() {
+    console.log("trying to send");
+    this.socket.connect();
   }
 
 }
