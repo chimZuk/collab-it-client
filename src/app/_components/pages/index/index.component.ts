@@ -12,7 +12,7 @@ export class IndexComponent implements OnInit {
   userData: any = {
     NickName: ""
   }
-
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {

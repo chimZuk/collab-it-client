@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatGuessesComponent implements OnInit {
 
+  messages: any = [
+    {
+      text: "Apple",
+      senderName: "chimZuk",
+      time: "1:22"
+    }
+  ]
+
+
   constructor() { }
 
   ngOnInit() {

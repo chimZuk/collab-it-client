@@ -1,0 +1,37 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.chat-body {
+    flex: 9;
+    padding: 10px;
+}
+
+.chat-actions {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.chat-actions mat-form-field {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.chat-actions button {
+    margin: 0px 10px;
+}
+
+.message-header span {
+    margin-right: 5px;
+}
+
+.message-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

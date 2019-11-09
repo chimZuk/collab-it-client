@@ -11,6 +11,11 @@ h4 {
     font-weight: 100;
 }
 
+html {
+    height: 100%;
+    position: relative;
+}
+
 body {
     margin: 0;
     font-family: 'Special Elite', cursive;
