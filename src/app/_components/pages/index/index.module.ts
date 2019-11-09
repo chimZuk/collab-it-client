@@ -13,6 +13,9 @@ import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.compo
   imports: [
     CommonModule,
     IndexRouter
+  ],
+  entryComponents: [
+    JoinDialogComponent
   ]
 })
 export class IndexModule { }
