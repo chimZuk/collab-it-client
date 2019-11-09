@@ -2,20 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndexComponent } from './index.component';
 import { IndexRouter } from './index.router';
-import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.component';
-
 
 @NgModule({
   declarations: [
-    IndexComponent,
-    JoinDialogComponent
+    IndexComponent
   ],
   imports: [
     CommonModule,
     IndexRouter
-  ],
-  entryComponents: [
-    JoinDialogComponent
   ]
 })
 export class IndexModule { }

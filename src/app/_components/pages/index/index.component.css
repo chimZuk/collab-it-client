@@ -1,10 +1,9 @@
 .typewriter {
     margin: 10px;
-    width: 205px;
+    width: 190px;
 }
 
 .typewriter h1 {
-    height: 25px;
     overflow: hidden;
     border-right: 3px solid #e91e63;
     font-weight: 100;

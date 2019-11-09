@@ -1,1 +1,14 @@
-<h2>Enter your nickname to join!</h2>
+<div class="join-form">
+    <mat-form-field>
+        <input autofocus matInput placeholder="Nickname" required>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="IsRegistering">Register and save user</mat-checkbox>
+    <mat-form-field *ngIf="IsRegistering">
+        <input matInput placeholder="Password" required>
+    </mat-form-field>
+</div>
+
+<mat-dialog-actions>
+    <button mat-button (click)="spectate();">Spectate</button>
+    <button mat-raised-button color="primary" (click)="join();">Join</button>
+</mat-dialog-actions>

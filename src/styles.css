@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 * {
     margin: 0px;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 100;
 }
 
 body {

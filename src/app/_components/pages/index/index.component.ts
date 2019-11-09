@@ -9,14 +9,21 @@ import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.compo
 })
 export class IndexComponent implements OnInit {
 
+  userData: any = {
+    NickName: ""
+  }
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    setTimeout(function () {
+      this.openJoinDialog();
+    }.bind(this), 2000);
   }
 
   openJoinDialog(): void {
     const dialogRef = this.dialog.open(JoinDialogComponent, {
-      width: '250px',
+      width: '300px',
       data: { UserName: "", Password: "" }
     });
 

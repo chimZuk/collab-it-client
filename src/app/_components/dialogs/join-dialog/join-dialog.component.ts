@@ -14,15 +14,21 @@ export interface DialogData {
 })
 export class JoinDialogComponent implements OnInit {
 
+  IsRegistering: boolean = false;
+
   constructor(
     public dialogRef: MatDialogRef<JoinDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  onNoClick(): void {
+  spectate(): void {
     this.dialogRef.close();
   }
 
-  ngOnInit() {
+  join(): void {
+    this.dialogRef.close();
+  }
+
+  ngOnInit(): void {
 
   }
 
