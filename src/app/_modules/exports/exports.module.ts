@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DragDropModule
   ],
   exports: [
     MatDialogModule,
@@ -47,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DragDropModule
   ]
 })
 export class ExportsModule { }

@@ -1,10 +1,82 @@
+.toppings-bar {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .toppings {
     margin-left: 10px;
     margin-bottom: 10px;
 }
 
+.sauce {
+    margin-top: 10px;
+}
+
 .pizza-deck {
     margin-left: 10px;
-    height: 700px;
+    height: 750px;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.pizza {
+    margin-left: 10px;
+    height: 600px;
+    width: 600px;
+    background-image: url("../../../../assets/img/base.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    transform: none !important;
+}
+
+.pizza img {
+    position: absolute;
+}
+
+.topping {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: none !important;
+}
+
+.drag-item {
+    background-color: #303030;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    margin-top: 10px;
+    padding: 0px 10px 0px 0px;
+    cursor: move;
+}
+
+.toppings-bar .drag-item {
+    margin: 0px;
+    margin-right: 10px;
+    cursor: none;
+    user-select: none;
+}
+
+.drag-placeholder {
+    display: none;
+}
+
+/deep/ .cdk-drag-placeholder {
+    display: none !important;
+    height: 0px !important;
+    width: 0px !important;
+    position: absolute !important;
+    transform: none !important;
 }
