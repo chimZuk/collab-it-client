@@ -19,10 +19,21 @@ export class SocketService {
   public sendMessage(message) {
     this.socket.emit('new-message', message);
   }
+  public messageHotStatus(message) {
+    this.socket.emit('message-hotness', message);
+  }
 
   public getMessages = () => {
     return Observable.create((observer) => {
       this.socket.on('new-message', (message) => {
+        observer.next(message);
+      });
+    });
+  }
+
+  public getMessageHotness = () => {
+    return Observable.create((observer) => {
+      this.socket.on('message-hotness', (message) => {
         observer.next(message);
       });
     });

@@ -8,8 +8,8 @@ import { SocketService } from '../../../_services/socket/socket.service';
 })
 export class ChatGuessesComponent implements OnInit {
 
-  @Input() authorized: string;
-  @Input() userData: string;
+  @Input() authorized: any;
+  @Input() userData: any;
 
   message: any = {
     text: "",
@@ -18,11 +18,6 @@ export class ChatGuessesComponent implements OnInit {
   }
 
   messages: any = [
-    {
-      text: "Apple",
-      senderName: "chimZuk",
-      time: "1:22"
-    }
   ]
 
 
@@ -33,19 +28,34 @@ export class ChatGuessesComponent implements OnInit {
   ngOnInit() {
     this.socket
       .getMessages()
-      .subscribe((message: string) => {
+      .subscribe((message: any) => {
         this.messages.push(message);
         setTimeout(function () {
           document.getElementById('messages').scrollBy(0, 9999999);
         }, 1)
       });
+    this.socket
+      .getMessageHotness()
+      .subscribe((message: any) => {
+        for (var i = 0; i < this.messages.length; i++) {
+          if (this.messages[i].messageID == message.messageID) {
+            this.messages[i] = message;
+          }
+        }
+      });
   }
 
   sendMessage() {
     if (this.message.text.length > 0) {
+      this.message.senderName = this.userData.UserName;
       this.socket.sendMessage(this.message);
       this.message.text = "";
     }
+  }
+
+  messageHotness(message, val) {
+    message.hotness = val;
+    this.socket.messageHotStatus(message);
   }
 
 }

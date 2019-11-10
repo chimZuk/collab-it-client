@@ -8,10 +8,10 @@
             <div class="message-content">
                 <span>{{message.text}}</span>
                 <div class="hint-buttons">
-                    <button mat-stroked-button color="accent" [disabled]="!authorized">
+                    <button mat-stroked-button color="accent" [disabled]="!authorized || message.hotness == 1" (click)="messageHotness(message, -1)">
                         <mat-icon>thumb_down_alt</mat-icon>
                     </button>
-                    <button mat-stroked-button color="warn" [disabled]="!authorized">
+                    <button mat-stroked-button color="warn" [disabled]="!authorized || message.hotness == -1" (click)="messageHotness(message, 1)">
                         <mat-icon>thumb_up_alt</mat-icon>
                     </button>
                 </div>
