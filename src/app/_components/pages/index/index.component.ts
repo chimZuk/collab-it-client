@@ -12,24 +12,34 @@ export class IndexComponent implements OnInit {
   authorized: boolean = false;
 
   userData: any = {
-    NickName: ""
+    UserName: "",
+    Password: ""
   }
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem("user"));
+    if (localStorage.getItem("user")) {
+      this.userData = JSON.parse(localStorage.getItem("user"));
+    }
     setTimeout(function () {
       this.openJoinDialog();
-    }.bind(this), 2000);
+    }.bind(this), 700);
   }
 
   openJoinDialog(): void {
     const dialogRef = this.dialog.open(JoinDialogComponent, {
       width: '300px',
-      data: { UserName: "", Password: "" }
+      data: this.userData
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.authorized = true;
+        this.userData = result;
+        localStorage.setItem("user", JSON.stringify(result));
+      }
       console.log(result);
     });
   }

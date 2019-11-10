@@ -9,6 +9,7 @@ import { SocketService } from '../../../_services/socket/socket.service';
 export class ChatGuessesComponent implements OnInit {
 
   @Input() authorized: string;
+  @Input() userData: string;
 
   message: any = {
     text: "",

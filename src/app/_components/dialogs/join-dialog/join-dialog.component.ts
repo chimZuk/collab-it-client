@@ -15,6 +15,10 @@ export interface DialogData {
 export class JoinDialogComponent implements OnInit {
 
   IsRegistering: boolean = false;
+  userData: any = {
+    UserName: "",
+    Password: ""
+  }
 
   constructor(
     public dialogRef: MatDialogRef<JoinDialogComponent>,
@@ -25,11 +29,11 @@ export class JoinDialogComponent implements OnInit {
   }
 
   join(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.userData);
   }
 
   ngOnInit(): void {
-
+    this.userData = this.data;
   }
 
 }
