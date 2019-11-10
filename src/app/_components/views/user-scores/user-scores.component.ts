@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'user-scores',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-scores.component.css']
 })
 export class UserScoresComponent implements OnInit {
+
+  @Input() players: any;
 
   constructor() { }
 

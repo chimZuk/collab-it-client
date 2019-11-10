@@ -9,6 +9,6 @@
 </div>
 
 <mat-dialog-actions>
-    <button mat-button (click)="spectate();">Spectate</button>
-    <button mat-raised-button color="primary" (click)="join();">Join</button>
+    <button mat-button (click)="spectate();" [disabled]="loading">Spectate</button>
+    <button mat-raised-button color="primary" (click)="join();" [disabled]="loading">Join</button>
 </mat-dialog-actions>

@@ -16,12 +16,32 @@ export class SocketService {
     this.socket = io(this.url);
   }
 
+  public userJoin(user) {
+    this.socket.emit('user-joined', user);
+  }
+
   public sendMessage(message) {
     this.socket.emit('new-message', message);
   }
 
   public messageHotStatus(message) {
     this.socket.emit('message-hotness', message);
+  }
+
+  public getJoined = () => {
+    return Observable.create((observer) => {
+      this.socket.on('user-joined', (user) => {
+        observer.next(user);
+      });
+    });
+  }
+
+  public getUsers = () => {
+    return Observable.create((observer) => {
+      this.socket.on('users', (user) => {
+        observer.next(user);
+      });
+    });
   }
 
   public getMessages = () => {
@@ -47,42 +67,5 @@ export class SocketService {
       });
     });
   }
-
-  /*send(i, j) {
-    this.socket.emit('/socket/keySend', {
-      data: {
-        token: JSON.parse(localStorage.getItem('currentUser')).token,
-        key: {
-          i: i,
-          j: j
-        }
-      }
-    });
-  }
-
-  chat() {
-    let observable = new Observable(observer => {
-
-      this.socket.on('online', (data) => {
-        observer.next(JSON.stringify(
-          {
-            id: data.userId,
-            type: 'online'
-          }
-        ));
-      });
-    });
-    return observable;
-  }
-  connect() {
-    console.log("here");
-    let observable = new Observable(observer => {
-      this.socket = io(this.url);
-      return () => {
-        this.socket.disconnect();
-      };
-    });
-    return observable;
-  }*/
 }
 
