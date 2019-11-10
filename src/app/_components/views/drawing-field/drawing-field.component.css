@@ -103,3 +103,8 @@
     position: absolute !important;
     transform: none !important;
 }
+
+/deep/ .drag-item.cdk-drag-disabled {
+    opacity: 0.3;
+    user-select: none;
+}

@@ -1,5 +1,5 @@
 <mat-card class="chat">
-    <h3 *ngIf="userData.main">Current word: <b>{{ word }}</b></h3>
+    <h3 *ngIf="userData.main">Current pizza: <b>{{ word }}</b></h3>
     <div class="chat-body" id="messages">
         <div *ngIf="messages.length == 0">No messages</div>
         <div *ngFor="let message of messages" class="message">
