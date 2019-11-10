@@ -101,7 +101,8 @@ export class IndexComponent implements OnInit {
   openJoinDialog(): void {
     const dialogRef = this.dialog.open(JoinDialogComponent, {
       width: '300px',
-      data: this.userData
+      data: this.userData,
+      disableClose: true 
     });
 
     dialogRef.afterClosed().subscribe(result => {

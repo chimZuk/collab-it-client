@@ -9,13 +9,18 @@
             </div>
             <div class="message-content">
                 <span>{{message.text}}</span>
-                <div class="hint-buttons">
-                    <button mat-stroked-button color="accent" [disabled]="!authorized || message.hotness == 1" (click)="messageHotness(message, -1)">
-                        <mat-icon>thumb_down_alt</mat-icon>
+                <div class="hint-buttons" *ngIf="userData.main">
+                    <button mat-stroked-button [disabled]="!authorized || message.hotness == 1" (click)="messageHotness(message, -1)">
+                        <mat-icon style="color: #f44336;">thumb_down_alt</mat-icon>
                     </button>
-                    <button mat-stroked-button color="warn" [disabled]="!authorized || message.hotness == -1" (click)="messageHotness(message, 1)">
-                        <mat-icon>thumb_up_alt</mat-icon>
+                    <button mat-stroked-button [disabled]="!authorized || message.hotness == -1" (click)="messageHotness(message, 1)">
+                        <mat-icon style="color: #53f436;">thumb_up_alt</mat-icon>
                     </button>
+                </div>
+                <div class="hint-icons" *ngIf="!userData.main">
+                    <mat-icon *ngIf="message.hotness == -1" style="color: #f44336;">thumb_down_alt</mat-icon>
+                    <mat-icon *ngIf="message.hotness == 1" style="color: #53f436;">thumb_up_alt</mat-icon>
+                    <mat-icon *ngIf="message.hotness == 0">query_builder</mat-icon>
                 </div>
             </div>
         </div>

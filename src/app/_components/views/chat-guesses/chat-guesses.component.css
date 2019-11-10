@@ -20,6 +20,10 @@
     margin-bottom: 5px;
 }
 
+.hint-icons {
+    padding: 10px;
+}
+
 .chat-actions {
     flex: 1;
     display: flex;
