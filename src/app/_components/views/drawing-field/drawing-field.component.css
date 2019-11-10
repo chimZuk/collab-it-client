@@ -6,10 +6,16 @@
 }
 
 .toppings-bar h2 {
-    height: 50px;
+    height: 55px;
     margin-right: 10px;
     display: flex;
     align-items: center;
+}
+
+.toppings-scroll {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .toppings {
@@ -23,7 +29,7 @@
 
 .pizza-deck {
     margin-left: 10px;
-    height: 750px;
+    height: 745px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -69,11 +75,21 @@
     cursor: move;
 }
 
+.drag-item span {
+    margin-left: 5px;
+}
+
 .toppings-bar .drag-item {
     margin: 0px;
-    margin-right: 10px;
-    cursor: none;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: default;
     user-select: none;
+}
+
+.toppings-bar .drag-item button {
+    margin-left: 5px;
+    margin-right: -5px;
 }
 
 .drag-placeholder {

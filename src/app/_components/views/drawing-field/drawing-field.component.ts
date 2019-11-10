@@ -9,6 +9,9 @@ import { SocketService } from '../../../_services/socket/socket.service';
 })
 export class DrawingFieldComponent implements OnInit {
 
+  @Input() authorized: any;
+  @Input() userData: any;
+  
   pizzaData: any;
   toppings: any = [];
   sauces: any = [];
@@ -50,6 +53,37 @@ export class DrawingFieldComponent implements OnInit {
       this.pizzaData.pizza = this.pizza;
       this.socket.sendPizzaData(this.pizzaData);
     }
+  }
+
+  removeTopping(item) {
+    for (var i = 0; i < this.pizza.length; i++) {
+      if (this.pizza[i].name == item.name) {
+        this.pizza.splice(i, 1);
+        break;
+      }
+    }
+
+    switch (item.type) {
+      case "toppings": {
+        this.toppings.push(item);
+        break;
+      }
+      case "sauces": {
+        this.sauces.push(item);
+        break;
+      }
+      case "base": {
+        this.base.push(item);
+        break;
+      }
+      default: break;
+    }
+
+    this.pizzaData.toppings = this.toppings;
+    this.pizzaData.sauces = this.sauces;
+    this.pizzaData.base = this.base;
+    this.pizzaData.pizza = this.pizza;
+    this.socket.sendPizzaData(this.pizzaData);
   }
 
   pizzatypes: any = [{
