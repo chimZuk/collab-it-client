@@ -29,7 +29,6 @@ export class SocketService {
   }
 
   public sendPizzaData(message) {
-    console.log(message);
     this.socket.emit('pizza-drag', message);
   }
   public ping = () => {
