@@ -8,8 +8,8 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class SocketService {
-  //private url = 'http://localhost';
-  private url ='http://chimzuk.com';
+  private url = 'http://localhost';
+  //private url ='http://chimzuk.com';
   private socket;
 
   constructor() {
