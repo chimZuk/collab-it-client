@@ -4,6 +4,10 @@
     padding: 10px;
 }
 
+.game-info h1 {
+    min-width: 391px;
+}
+
 .content {
     display: flex;
 }

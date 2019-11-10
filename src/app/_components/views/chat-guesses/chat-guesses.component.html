@@ -1,10 +1,10 @@
 <mat-card class="chat">
     <div class="chat-body" id="messages">
         <div *ngIf="messages.length == 0">No messages</div>
-        <div *ngFor="let message of messages">
+        <div *ngFor="let message of messages" class="message">
             <div class="message-header">
                 <span>{{message.senderName}}</span>
-                <span>{{message.time}}s</span>
+                <span [ngStyle]="{'color': message.time > 30 ? '#53f436' : (message.time < 30 && message.time > 10 ? '#f4ee36' : '#f44336' )}">{{message.time}}s</span>
             </div>
             <div class="message-content">
                 <span>{{message.text}}</span>

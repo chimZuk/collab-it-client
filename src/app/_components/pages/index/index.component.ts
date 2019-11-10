@@ -32,10 +32,12 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem("user"));
-    if (JSON.parse(localStorage.getItem("user")).UserName) {
-      this.userData = JSON.parse(localStorage.getItem("user"));
-    } else {
-      localStorage.removeItem("user");
+    if (JSON.parse(localStorage.getItem("user")) != null) {
+      if (JSON.parse(localStorage.getItem("user")).UserName) {
+        this.userData = JSON.parse(localStorage.getItem("user"));
+      } else {
+        localStorage.removeItem("user");
+      }
     }
 
     setTimeout(function () {
@@ -53,6 +55,12 @@ export class IndexComponent implements OnInit {
         console.log(players)
         this.players = players;
       });
+    this.socket
+      .getJoined()
+      .subscribe((data: any) => {
+        console.log(data)
+        this.players = data.players;
+      });
   }
 
   openJoinDialog(): void {
@@ -64,8 +72,9 @@ export class IndexComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.authorized = true;
-        this.userData = result;
-        localStorage.setItem("user", JSON.stringify(result));
+        this.players = result.players;
+        this.userData = result.userData;
+        localStorage.setItem("user", JSON.stringify(result.userData));
       }
       console.log(result);
     });

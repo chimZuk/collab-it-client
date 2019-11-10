@@ -1,1 +1,17 @@
-<p *ngFor="let player of players"> {{ player.UserName }}</p>
+<mat-card class="score-tabs">
+    <mat-tab-group>
+        <mat-tab label="Players">
+            <div>
+                <div *ngFor="let player of players">
+                    <span> {{ player.UserName }}</span>
+                    <span> {{ player.score }}</span>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Leaders">
+            <div>
+                <p *ngFor="let player of players"> {{ player.UserName }}</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

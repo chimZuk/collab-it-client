@@ -41,7 +41,7 @@ export class JoinDialogComponent implements OnInit {
       .getJoined()
       .subscribe((user: any) => {
         sub.unsubscribe();
-        this.dialogRef.close(user.userData);
+        this.dialogRef.close(user);
         console.log(user);
         this.loading = false;
       });

@@ -5,7 +5,8 @@
         </h1>
     </div>
     <div class="game-info">
-        <h1>Time Remaining: {{time}}s</h1>
+        <h1>Time Remaining: <span [ngStyle]="{'color': time > 30 ? '#53f436' : (time < 30 && time > 10 ? '#f4ee36' : '#f44336' )}">{{time}}s</span>
+        </h1>
     </div>
 </div>
 <div class="content">
