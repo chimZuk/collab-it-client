@@ -5,7 +5,7 @@
         </h1>
     </div>
     <div class="game-info">
-        <h1>Time Remaining: <span [ngStyle]="{'color': time > 30 ? '#53f436' : (time < 30 && time > 10 ? '#f4ee36' : '#f44336' )}">{{time}}s</span>
+        <h1>Time Remaining: <span [ngStyle]="{'color': time > 30 ? '#53f436' : (time < 31 && time > 10 ? '#f4ee36' : '#f44336' )}">{{time}}s</span>
         </h1>
     </div>
 </div>
@@ -15,7 +15,8 @@
     </div>
     <div class="side-column">
         <div class="chat-guesses">
-            <chat-guesses [authorized]="authorized" [userData]="userData" [time]="time"></chat-guesses>
+            <chat-guesses [authorized]="authorized" [userData]="userData" [messages]="messages" [time]="time">
+            </chat-guesses>
         </div>
         <div class="scores">
             <user-scores [players]="players"></user-scores>

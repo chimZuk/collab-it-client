@@ -11,15 +11,13 @@ export class ChatGuessesComponent implements OnInit {
   @Input() authorized: any;
   @Input() userData: any;
   @Input() time: any;
+  @Input() messages: any = [];
 
   message: any = {
     text: "",
     senderName: "chimZuk",
     time: ""
   }
-
-  messages: any = [
-  ]
 
 
   constructor(

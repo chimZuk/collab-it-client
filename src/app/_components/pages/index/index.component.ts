@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.component';
 import { SocketService } from '../../../_services/socket/socket.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'index',
@@ -20,10 +21,12 @@ export class IndexComponent implements OnInit {
   }
 
   players: any = [];
+  messages: any = [];
 
   constructor(
     public dialog: MatDialog,
-    private socket: SocketService
+    private socket: SocketService,
+    private snackBar: MatSnackBar
   ) { }
 
   getRandomInt(max) {
@@ -56,11 +59,27 @@ export class IndexComponent implements OnInit {
         this.players = players;
       });
     this.socket
+      .getAllMessages()
+      .subscribe((messages: any) => {
+        console.log(messages)
+        this.messages = messages;
+      });
+    this.socket
       .getJoined()
       .subscribe((data: any) => {
         console.log(data)
         this.players = data.players;
       });
+    this.socket
+      .endOfGame()
+      .subscribe((data: any) => {
+        console.log(data.message);
+        this.congrats(data.message);
+      });
+  }
+
+  congrats(message) {
+    let snackBarRef = this.snackBar.open(message, 'Got it');
   }
 
   openJoinDialog(): void {

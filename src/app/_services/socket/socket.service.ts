@@ -36,9 +36,25 @@ export class SocketService {
     });
   }
 
+  public endOfGame = () => {
+    return Observable.create((observer) => {
+      this.socket.on('endgame', (data) => {
+        observer.next(data);
+      });
+    });
+  }
+
   public getUsers = () => {
     return Observable.create((observer) => {
       this.socket.on('users', (user) => {
+        observer.next(user);
+      });
+    });
+  }
+
+  public getAllMessages = () => {
+    return Observable.create((observer) => {
+      this.socket.on('messages', (user) => {
         observer.next(user);
       });
     });
