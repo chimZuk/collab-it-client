@@ -10,11 +10,12 @@ export class ChatGuessesComponent implements OnInit {
 
   @Input() authorized: any;
   @Input() userData: any;
+  @Input() time: any;
 
   message: any = {
     text: "",
     senderName: "chimZuk",
-    time: "1:22"
+    time: ""
   }
 
   messages: any = [
@@ -48,6 +49,7 @@ export class ChatGuessesComponent implements OnInit {
   sendMessage() {
     if (this.message.text.length > 0) {
       this.message.senderName = this.userData.UserName;
+      this.message.time = this.time;
       this.socket.sendMessage(this.message);
       this.message.text = "";
     }

@@ -19,6 +19,7 @@ export class SocketService {
   public sendMessage(message) {
     this.socket.emit('new-message', message);
   }
+
   public messageHotStatus(message) {
     this.socket.emit('message-hotness', message);
   }
@@ -34,6 +35,14 @@ export class SocketService {
   public getMessageHotness = () => {
     return Observable.create((observer) => {
       this.socket.on('message-hotness', (message) => {
+        observer.next(message);
+      });
+    });
+  }
+
+  public getTime = () => {
+    return Observable.create((observer) => {
+      this.socket.on('time', (message) => {
         observer.next(message);
       });
     });

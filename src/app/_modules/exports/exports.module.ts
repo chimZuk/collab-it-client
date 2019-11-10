@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   exports: [
     MatDialogModule,
@@ -37,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class ExportsModule { }

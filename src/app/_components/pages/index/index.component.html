@@ -4,6 +4,9 @@
             Collab It!
         </h1>
     </div>
+    <div class="game-info">
+        <h1>Time Remaining: {{time}}s</h1>
+    </div>
 </div>
 <div class="content">
     <div class="drawing-field">
@@ -11,7 +14,7 @@
     </div>
     <div class="side-column">
         <div class="chat-guesses">
-            <chat-guesses [authorized]="authorized" [userData]="userData"></chat-guesses>
+            <chat-guesses [authorized]="authorized" [userData]="userData" [time]="time"></chat-guesses>
         </div>
         <div class="scores">
             <user-scores></user-scores>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { JoinDialogComponent } from '../../dialogs/join-dialog/join-dialog.component';
+import { SocketService } from '../../../_services/socket/socket.service';
 
 @Component({
   selector: 'index',
@@ -11,12 +12,21 @@ export class IndexComponent implements OnInit {
 
   authorized: boolean = false;
 
+  time: number = 0;
+
   userData: any = {
     UserName: "",
     Password: ""
   }
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private socket: SocketService
+  ) { }
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
 
   ngOnInit() {
     console.log(localStorage.getItem("user"));
@@ -26,6 +36,12 @@ export class IndexComponent implements OnInit {
     setTimeout(function () {
       this.openJoinDialog();
     }.bind(this), 700);
+
+    this.socket
+      .getTime()
+      .subscribe((message: any) => {
+        this.time = message;
+      });
   }
 
   openJoinDialog(): void {

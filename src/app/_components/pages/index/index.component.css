@@ -1,3 +1,9 @@
+.header-strip {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 .content {
     display: flex;
 }
@@ -17,7 +23,6 @@
 }
 
 .typewriter {
-    margin: 10px;
     width: 190px;
 }
 
