@@ -1,4 +1,4 @@
-<mat-card class="score-tabs">
+<mat-card [ngClass]="{'score-tabs': true, 'mobile': isMobile}">
     <mat-tab-group>
         <mat-tab label="Players">
             <div>

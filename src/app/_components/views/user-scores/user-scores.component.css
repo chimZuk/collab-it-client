@@ -9,3 +9,9 @@
     margin: 10px 0px;
     font-size: 18px;
 }
+
+.mobile.score-tabs {
+    height: 300px;
+    margin: 0px;
+    min-width: 0px;
+}

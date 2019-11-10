@@ -43,6 +43,31 @@
     animation: typing 2s steps(40, end) infinite, blink-caret .75s step-end infinite;
 }
 
+.mobile .header-strip {
+    width: 200px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile .typewriter {
+    width: 200px;
+}
+
+.mobile .typewriter h1 {
+    font-size: 20px;
+    width: auto;
+}
+
+.mobile .game-info h1 {
+    font-size: 17px;
+    min-width: 0px;
+}
+
+.mobile .content {
+    flex-direction: column;
+}
+
 @keyframes typing {
     from {
         width: 0

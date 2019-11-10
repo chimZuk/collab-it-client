@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserScoresComponent implements OnInit {
 
   @Input() players: any;
+  @Input() isMobile: any;
 
   constructor() { }
 

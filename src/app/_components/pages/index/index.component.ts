@@ -146,11 +146,11 @@ import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar'
   template: `<div style="display: flex; align-items: center;" *ngIf="!data.hasWinner"><div>😣 No winner for this round 😣 <br> 
   🍕&nbsp;&nbsp;Right answer: <b>{{ data.word }}</b> 🍕<br>
   😉 <b>{{data.nextPlayer.UserName}}</b> is building pizza next! 😉</div> 
-  <button mat-raised-button style="margin-left: 5px;" mat-stroked-button (click)="snackBarRef.dismiss()">Got it!</button></div>
+  <button mat-raised-button style="margin-left: 5px;" mat-stroked-button (click)="snackBarRef.dismiss()">Ok!</button></div>
   <div style="display: flex; align-items: center;" *ngIf="data.hasWinner"><div>🏆 <b>{{data.nextPlayer.UserName}}</b> is the winner of this round 🏆 <br> 
   🍕&nbsp;&nbsp;Right answer: <b>{{ data.word }}</b> 🍕<br>
   😉 <b>{{data.nextPlayer.UserName}}</b> is building pizza next! 😉</div> 
-  <button mat-raised-button style="margin-left: 5px;" mat-stroked-button (click)="snackBarRef.dismiss()">Got it!</button></div>`,
+  <button mat-raised-button style="margin-left: 5px;" mat-stroked-button (click)="snackBarRef.dismiss()">Ok!</button></div>`,
 })
 export class PopupSnack {
   constructor(

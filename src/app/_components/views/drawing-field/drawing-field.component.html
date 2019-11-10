@@ -1,4 +1,4 @@
-<mat-card class="toppings-bar">
+<mat-card [ngClass]="{'toppings-bar': true, 'mobile': isMobile}">
     <h2>Ingredients:</h2>
     <div class="toppings-scroll">
         <div class="drag-item" *ngFor="let item of pizza">
@@ -9,8 +9,8 @@
         </div>
     </div>
 </mat-card>
-<mat-card class="pizza-deck" cdkDropListGroup>
-    <div>
+<mat-card cdkDropListGroup [ngClass]="{'pizza-deck': true, 'mobile': isMobile}" *ngIf="isMobile && userData.main || !isMobile">
+    <div *ngIf="!isMobile">
         <div class="base" cdkDropList [cdkDropListData]="base" (cdkDropListDropped)="drop($event)">
             <h2>1. Base:</h2>
             <div class="drag-item" *ngFor="let item of base" cdkDrag [cdkDragDisabled]="item.name == 'Square' || !authorized || !userData.main">
@@ -25,12 +25,33 @@
             </div>
         </div>
     </div>
-    <div class="pizza" cdkDropList [cdkDropListData]="pizza" (cdkDropListDropped)="drop($event)">
+    <div class="pizza" cdkDropList [cdkDropListData]="pizza" (cdkDropListDropped)="drop($event)" *ngIf="!isMobile">
         <img class="topping" *ngFor="let item of pizza" cdkDrag [src]="item.src" width="600px" height="600px" [cdkDragDisabled]="true">
     </div>
-    <div class="toppings" cdkDropList [cdkDropListData]="toppings" (cdkDropListDropped)="drop($event)">
+    <div class="toppings" cdkDropList [cdkDropListData]="toppings" (cdkDropListDropped)="drop($event)" *ngIf="!isMobile">
         <h2>3. Toppings:</h2>
         <div class="drag-item" *ngFor="let item of toppings" cdkDrag [cdkDragDisabled]="!authorized || !userData.main">
+            <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
+        </div>
+    </div>
+
+    <div *ngIf="isMobile">
+        <div class="base" cdkDropList [cdkDropListData]="base" (cdkDropListDropped)="drop($event)">
+            <h2>1. Base:</h2>
+            <div class="drag-item" *ngFor="let item of base" (click)="addIngredient(item, base)">
+                <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
+            </div>
+        </div>
+        <div class="sauce" cdkDropList [cdkDropListData]="sauces" (cdkDropListDropped)="drop($event)">
+            <h2>2. Sauce:</h2>
+            <div class="drag-item" *ngFor="let item of sauces" (click)="addIngredient(item, sauces)">
+                <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="toppings" cdkDropList [cdkDropListData]="toppings" (cdkDropListDropped)="drop($event)" *ngIf="isMobile">
+        <h2>3. Toppings:</h2>
+        <div class="drag-item" *ngFor="let item of toppings" (click)="addIngredient(item, toppings)">
             <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
         </div>
     </div>

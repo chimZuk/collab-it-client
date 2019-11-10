@@ -11,6 +11,7 @@ export class DrawingFieldComponent implements OnInit {
 
   @Input() authorized: any;
   @Input() userData: any;
+  @Input() isMobile: any;
 
   pizzaData: any;
   toppings: any = [];
@@ -53,6 +54,16 @@ export class DrawingFieldComponent implements OnInit {
       this.pizzaData.pizza = this.pizza;
       this.socket.sendPizzaData(this.pizzaData);
     }
+  }
+
+  addIngredient(item, array) {
+    this.pizzaData.pizza.push(item);
+    array.splice(array.indexOf(item), 1);
+    this.pizzaData.toppings = this.toppings;
+    this.pizzaData.sauces = this.sauces;
+    this.pizzaData.base = this.base;
+    this.pizzaData.pizza = this.pizza;
+    this.socket.sendPizzaData(this.pizzaData);
   }
 
   removeTopping(item) {

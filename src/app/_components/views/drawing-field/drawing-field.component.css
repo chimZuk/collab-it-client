@@ -108,3 +108,26 @@
     opacity: 0.3;
     user-select: none;
 }
+
+.mobile.pizza-deck {
+    margin: 10px 0px;
+    padding: 5px;
+    font-size: 12px;
+    justify-content: space-around;
+}
+
+.mobile.toppings-bar {
+    margin: 10px 0px;
+    padding: 5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile .toppings-scroll {
+    flex-direction: row;
+    overflow-x: auto;
+    max-width: calc(100vw - 10px);
+    flex-wrap: nowrap;
+    align-items: start;
+}

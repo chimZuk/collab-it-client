@@ -1,4 +1,4 @@
-<mat-card class="chat">
+<mat-card [ngClass]="{'chat': true, 'mobile': isMobile}">
     <h3 *ngIf="userData.main && authorized">Current pizza: <b>{{ word }}</b></h3>
     <h3 *ngIf="!userData.main && authorized">Answer should be exact match
     </h3>

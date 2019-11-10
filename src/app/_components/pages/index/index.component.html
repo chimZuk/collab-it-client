@@ -1,4 +1,4 @@
-<div class="header-strip">
+<div class="header-strip" *ngIf="!isMobile">
     <div class="typewriter">
         <h1>
             Collab It! 🍕🍕🍕 Pizza Edition 🍕🍕🍕
@@ -9,7 +9,7 @@
         </h1>
     </div>
 </div>
-<div class="content">
+<div class="content" *ngIf="!isMobile">
     <div class="drawing-field">
         <drawing-field [authorized]="authorized" [userData]="userData"></drawing-field>
     </div>
@@ -20,6 +20,35 @@
         </div>
         <div class="scores">
             <user-scores [players]="players"></user-scores>
+        </div>
+    </div>
+</div>
+<div class="mobile" *ngIf="isMobile">
+    <div class="header-strip">
+        <div class="typewriter">
+            <h1>
+                Collab It! 🍕🍕🍕
+            </h1>
+        </div>
+        <div class="game-info">
+            <h1>Time Remaining: <span [ngStyle]="{'color': time > 30 ? '#53f436' : (time < 31 && time > 10 ? '#f4ee36' : '#f44336' )}">{{time}}s</span>
+            </h1>
+        </div>
+        <h3 *ngIf="userData.main && authorized" style="font-size: 16px; margin-bottom: -10px;">Current pizza:
+            <b>{{ word }}</b></h3>
+    </div>
+    <div class="content">
+        <div class="drawing-field">
+            <drawing-field [authorized]="authorized" [userData]="userData" [isMobile]="isMobile"></drawing-field>
+        </div>
+        <div class="side-column">
+            <div class="chat-guesses">
+                <chat-guesses [authorized]="authorized" [userData]="userData" [messages]="messages" [time]="time" [word]="word" [isMobile]="isMobile">
+                </chat-guesses>
+            </div>
+            <div class="scores">
+                <user-scores [players]="players" [isMobile]="isMobile"></user-scores>
+            </div>
         </div>
     </div>
 </div>

@@ -13,6 +13,7 @@ export class ChatGuessesComponent implements OnInit {
   @Input() time: any;
   @Input() messages: any = [];
   @Input() word: string = "";
+  @Input() isMobile: any;
 
   message: any = {
     text: "",
