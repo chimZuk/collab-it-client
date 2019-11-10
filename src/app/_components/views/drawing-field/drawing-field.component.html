@@ -1,31 +1,31 @@
 <mat-card class="toppings-bar">
     <h2>Ingredients:</h2>
-    <div class="drag-item" *ngFor="let item of pizza">
-        <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
+    <div class="drag-item" *ngFor="let item of pizzaData.pizza">
+        <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span> <button mat-fab-button></button>
     </div>
 </mat-card>
 <mat-card class="pizza-deck" cdkDropListGroup>
     <div>
         <div class="base" cdkDropList [cdkDropListData]="base" (cdkDropListDropped)="drop($event)">
             <h2>1. Base:</h2>
-            <div class="drag-item" *ngFor="let item of base" cdkDrag [cdkDragDisabled]="item.name == 'Square'">
+            <div class="drag-item" *ngFor="let item of pizzaData.base" cdkDrag [cdkDragDisabled]="item.name == 'Square'">
                 <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
             </div>
         </div>
         <div class="sauce" cdkDropList [cdkDropListData]="sauces" (cdkDropListDropped)="drop($event)">
             <h2>2. Sauce:</h2>
-            <div class="drag-item" *ngFor="let item of sauces" cdkDrag>
+            <div class="drag-item" *ngFor="let item of pizzaData.sauces" cdkDrag>
                 <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
                 <div class="drag-placeholder" *cdkDragPlaceholder></div>
             </div>
         </div>
     </div>
     <div class="pizza" cdkDropList [cdkDropListData]="pizza" (cdkDropListDropped)="drop($event)">
-        <img class="topping" *ngFor="let item of pizza" cdkDrag [src]="item.src" width="600px" height="600px">
+        <img class="topping" *ngFor="let item of pizzaData.pizza" cdkDrag [src]="item.src" width="600px" height="600px">
     </div>
     <div class="toppings" cdkDropList [cdkDropListData]="toppings" (cdkDropListDropped)="drop($event)">
         <h2>3. Toppings:</h2>
-        <div class="drag-item" *ngFor="let item of toppings" cdkDrag>
+        <div class="drag-item" *ngFor="let item of pizzaData.toppings" cdkDrag>
             <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
         </div>
     </div>

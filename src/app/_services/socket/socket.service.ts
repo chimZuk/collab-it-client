@@ -27,6 +27,14 @@ export class SocketService {
   public messageHotStatus(message) {
     this.socket.emit('message-hotness', message);
   }
+  
+  public getPizzaData = () => {
+    return Observable.create((observer) => {
+      this.socket.on('pizza-data', (message) => {
+        observer.next(message);
+      });
+    });
+  }
 
   public getJoined = () => {
     return Observable.create((observer) => {

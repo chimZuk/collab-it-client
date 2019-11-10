@@ -23,6 +23,7 @@ export class IndexComponent implements OnInit {
   players: any = [];
   messages: any = [];
   word: string = "";
+  pizzaData: any = {};
 
   constructor(
     public dialog: MatDialog,
@@ -52,6 +53,12 @@ export class IndexComponent implements OnInit {
       .getTime()
       .subscribe((message: any) => {
         this.time = message;
+      });
+    this.socket
+      .getPizzaData()
+      .subscribe((data: any) => {
+        console.log(data)
+        this.pizzaData = data;
       });
     this.socket
       .getUsers()
@@ -102,7 +109,7 @@ export class IndexComponent implements OnInit {
     const dialogRef = this.dialog.open(JoinDialogComponent, {
       width: '300px',
       data: this.userData,
-      disableClose: true 
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
