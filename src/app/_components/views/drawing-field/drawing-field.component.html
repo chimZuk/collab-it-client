@@ -1,4 +1,5 @@
 <mat-card class="toppings-bar">
+    <h2>Ingredients:</h2>
     <div class="drag-item" *ngFor="let item of pizza">
         <img [src]="item.icon" height="50px" width="50px"><span>{{item.name}}</span>
     </div>

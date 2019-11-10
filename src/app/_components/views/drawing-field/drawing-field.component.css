@@ -5,6 +5,13 @@
     align-items: center;
 }
 
+.toppings-bar h2 {
+    height: 50px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .toppings {
     margin-left: 10px;
     margin-bottom: 10px;
