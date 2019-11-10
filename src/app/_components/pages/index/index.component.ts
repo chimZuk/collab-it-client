@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class IndexComponent implements OnInit {
 
   authorized: boolean = false;
+  isMobile: boolean = false;
 
   time: number = 0;
 
@@ -50,9 +51,9 @@ export class IndexComponent implements OnInit {
 
     var ua = navigator.userAgent;
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-      alert("mobile");
+      this.isMobile = true;
     } else {
-      alert("desktop");
+      this.isMobile = false;
     }
 
 
