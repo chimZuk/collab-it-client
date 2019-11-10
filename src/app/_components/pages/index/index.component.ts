@@ -89,6 +89,12 @@ export class IndexComponent implements OnInit {
         console.log(data);
         this.congrats(data);
       });
+    this.socket
+      .ping()
+      .subscribe((data: any) => {
+        console.log(data);
+        this.socket.userJoin(this.userData);
+      });
   }
 
   congrats(data) {

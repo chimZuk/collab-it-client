@@ -8,8 +8,8 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class SocketService {
-  //private url = 'http://localhost';
-  private url ='http://chimzuk.com';
+  private url = 'http://localhost';
+  //private url ='http://chimzuk.com';
   private socket;
 
   constructor() {
@@ -31,6 +31,13 @@ export class SocketService {
   public sendPizzaData(message) {
     console.log(message);
     this.socket.emit('pizza-drag', message);
+  }
+  public ping = () => {
+    return Observable.create((observer) => {
+      this.socket.on('ping', (message) => {
+        observer.next(message);
+      });
+    });
   }
 
   public getPizzaData = () => {

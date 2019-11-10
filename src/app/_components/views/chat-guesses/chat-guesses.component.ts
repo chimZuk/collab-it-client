@@ -48,6 +48,7 @@ export class ChatGuessesComponent implements OnInit {
   sendMessage() {
     if (this.message.text.length > 0) {
       this.message.senderName = this.userData.UserName;
+      this.message.main = this.userData.main;
       this.message.time = this.time;
       this.socket.sendMessage(this.message);
       this.message.text = "";
