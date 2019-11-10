@@ -12,6 +12,7 @@ export class ChatGuessesComponent implements OnInit {
   @Input() userData: any;
   @Input() time: any;
   @Input() messages: any = [];
+  @Input() word: string = "";
 
   message: any = {
     text: "",
@@ -51,6 +52,7 @@ export class ChatGuessesComponent implements OnInit {
       this.socket.sendMessage(this.message);
       this.message.text = "";
     }
+    console.log(this.userData);
   }
 
   messageHotness(message, val) {

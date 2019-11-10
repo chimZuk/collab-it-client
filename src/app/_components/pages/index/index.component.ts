@@ -22,6 +22,7 @@ export class IndexComponent implements OnInit {
 
   players: any = [];
   messages: any = [];
+  word: string = "";
 
   constructor(
     public dialog: MatDialog,
@@ -57,18 +58,30 @@ export class IndexComponent implements OnInit {
       .subscribe((players: any) => {
         console.log(players)
         this.players = players;
+        for (var i = 0; i < this.players.length; i++) {
+          if (this.players[i].UserName == this.userData.UserName) {
+            this.userData = this.players[i];
+          }
+        }
       });
     this.socket
       .getAllMessages()
       .subscribe((messages: any) => {
         console.log(messages)
-        this.messages = messages;
+        this.messages = messages.messages;
+        console.log(this.messages);
+        this.word = messages.word;
       });
     this.socket
       .getJoined()
       .subscribe((data: any) => {
         console.log(data)
         this.players = data.players;
+        for (var i = 0; i < this.players.length; i++) {
+          if (this.players[i].UserName == this.userData.UserName) {
+            this.userData = this.players[i];
+          }
+        }
       });
     this.socket
       .endOfGame()

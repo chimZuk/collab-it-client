@@ -54,8 +54,8 @@ export class SocketService {
 
   public getAllMessages = () => {
     return Observable.create((observer) => {
-      this.socket.on('messages', (user) => {
-        observer.next(user);
+      this.socket.on('messages', (messages) => {
+        observer.next(messages);
       });
     });
   }
