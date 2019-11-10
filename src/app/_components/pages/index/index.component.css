@@ -4,6 +4,10 @@
     padding: 10px;
 }
 
+.header-strip {
+    user-select: none;
+}
+
 .game-info h1 {
     min-width: 391px;
 }

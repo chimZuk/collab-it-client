@@ -4,3 +4,8 @@
     margin-top: 0px;
     min-width: 360px;
 }
+
+.player {
+    margin: 10px 0px;
+    font-size: 18px;
+}
