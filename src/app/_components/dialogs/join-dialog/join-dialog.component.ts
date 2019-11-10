@@ -34,18 +34,19 @@ export class JoinDialogComponent implements OnInit {
   }
 
   join(): void {
-    this.socket.userJoin(this.userData);
-    console.log(this.userData);
-    this.loading = true;
-    let sub = this.socket
-      .getJoined()
-      .subscribe((user: any) => {
-        sub.unsubscribe();
-        this.dialogRef.close(user);
-        console.log(user);
-        this.loading = false;
-      });
-
+    if (this.userData.UserName.length > 0) {
+      this.socket.userJoin(this.userData);
+      console.log(this.userData);
+      this.loading = true;
+      let sub = this.socket
+        .getJoined()
+        .subscribe((user: any) => {
+          sub.unsubscribe();
+          this.dialogRef.close(user);
+          console.log(user);
+          this.loading = false;
+        });
+    }
   }
 
   ngOnInit(): void {

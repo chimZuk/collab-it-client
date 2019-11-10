@@ -36,13 +36,25 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem("user"));
-    if (JSON.parse(localStorage.getItem("user")) != null) {
-      if (JSON.parse(localStorage.getItem("user")).UserName) {
-        this.userData = JSON.parse(localStorage.getItem("user"));
-      } else {
-        localStorage.removeItem("user");
+    if (localStorage.getItem("user") != "undefined") {
+      if (JSON.parse(localStorage.getItem("user")) != null) {
+        if (JSON.parse(localStorage.getItem("user")).UserName) {
+          this.userData = JSON.parse(localStorage.getItem("user"));
+        } else {
+          localStorage.removeItem("user");
+        }
       }
+    } else {
+      localStorage.removeItem("user");
     }
+
+    var ua = navigator.userAgent;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+      alert("mobile");
+    } else {
+      alert("desktop");
+    }
+
 
     setTimeout(function () {
       this.openJoinDialog();

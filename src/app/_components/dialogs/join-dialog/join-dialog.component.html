@@ -2,13 +2,8 @@
     <mat-form-field>
         <input autofocus matInput placeholder="Nickname" [(ngModel)]="userData.UserName" required>
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="IsRegistering">Register and save user</mat-checkbox>
-    <mat-form-field *ngIf="IsRegistering">
-        <input matInput placeholder="Password" [(ngModel)]="userData.Password" required>
-    </mat-form-field>
 </div>
 
 <mat-dialog-actions>
-    <button mat-button (click)="spectate();" [disabled]="loading">Spectate</button>
     <button mat-raised-button color="primary" (click)="join();" [disabled]="loading">Join</button>
 </mat-dialog-actions>
